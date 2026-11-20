@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1555d9">
+  <title>NEET Practice Test</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <button id="languageBtn" class="language-btn">English</button>
+  <h1>🧠 NEET Practice<br>Test</h1>
+  <p id="heroSubtitle">
+    Physics • Chemistry • Biology | अभ्यास करें, टेस्ट दें, परिणाम देखें
+  </p>
+</header>
+
+<main class="container">
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="practice">अभ्यास टेस्ट</button>
+    <button class="tab" data-tab="create">प्रश्नपत्र बनाएं</button>
+    <button class="tab" data-tab="info">जानकारी</button>
+  </nav>
+
+  <section id="practice" class="panel">
+    <h2 id="chooseTitle">अपना टेस्ट चुनें</h2>
+
+    <div class="size-box">
+      <label for="testSize">Test size / टेस्ट में प्रश्न</label>
+      <select id="testSize">
+        <option value="60">60 Questions (15 each)</option>
+        <option value="180">180 Questions (45 each)</option>
+      </select>
+      <p id="sizeInfo">
+        चारों विषयों के 15-15 प्रश्न (कुल 60) — 60 मिनट।
+      </p>
+    </div>
+
+    <div class="subject-grid">
+
+      <article class="subject-card">
+        <div class="subject-icon">⚛️</div>
+        <div class="subject-content">
+          <h3>Physics</h3>
+          <p>भौतिक विज्ञान</p>
+          <button class="start-btn" data-subject="Physics">टेस्ट शुरू करें →</button>
+        </div>
+      </article>
+
+      <article class="subject-card">
+        <div class="subject-icon">🧪</div>
+        <div class="subject-content">
+          <h3>Chemistry</h3>
+          <p>रसायन विज्ञान</p>
+          <button class="start-btn" data-subject="Chemistry">टेस्ट शुरू करें →</button>
+        </div>
+      </article>
+
+      <article class="subject-card">
+        <div class="subject-icon">🌿</div>
+        <div class="subject-content">
+          <h3>Botany</h3>
+          <p>वनस्पति विज्ञान</p>
+          <button class="start-btn" data-subject="Botany">टेस्ट शुरू करें →</button>
+        </div>
+      </article>
+
+      <article class="subject-card">
+        <div class="subject-icon">🧬</div>
+        <div class="subject-content">
+          <h3>Zoology</h3>
+          <p>प्राणी विज्ञान</p>
+          <button class="start-btn" data-subject="Zoology">टेस्ट शुरू करें →</button>
+        </div>
+      </article>
+
+      <article class="subject-card mixed-card">
+        <div class="subject-icon">🎓</div>
+        <div class="subject-content">
+          <h3>Mixed Test</h3>
+          <p>चारों विषय</p>
+          <button class="start-btn" data-subject="All">टेस्ट शुरू करें →</button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="create" class="panel" hidden>
+    <h2>प्रश्नपत्र बनाएं</h2>
+
+    <label>Subject / विषय</label>
+    <select id="newSubject">
+      <option>Physics</option>
+      <option>Chemistry</option>
+      <option>Botany</option>
+      <option>Zoology</option>
+    </select>
+
+    <label>Question in English</label>
+    <textarea id="questionEn" placeholder="Enter question in English"></textarea>
+
+    <label>प्रश्न हिंदी में</label>
+    <textarea id="questionHi" placeholder="प्रश्न हिंदी में लिखें"></textarea>
+
+    <label>Option A</label>
+    <input id="optionA" placeholder="Option A">
+
+    <label>Option B</label>
+    <input id="optionB" placeholder="Option B">
+
+    <label>Option C</label>
+    <input id="optionC" placeholder="Option C">
+
+    <label>Option D</label>
+    <input id="optionD" placeholder="Option D">
+
+    <label>Correct Answer / सही उत्तर</label>
+    <select id="correctAnswer">
+      <option value="0">A</option>
+      <option value="1">B</option>
+      <option value="2">C</option>
+      <option value="3">D</option>
+    </select>
+
+    <button id="saveQuestion" class="start-btn">प्रश्न सेव करें</button>
+    <p id="savedMessage"></p>
+    <p id="questionCount"></p>
+  </section>
+
+  <section id="info" class="panel" hidden>
+    <h2>टेस्ट की जानकारी</h2>
+    <div class="info-card">
+      <h3>60 Questions Test</h3>
+      <p>हर विषय से 15 प्रश्न — कुल 60 प्रश्न।</p>
+      <p>समय: 60 मिनट</p>
+    </div>
+    <div class="info-card">
+      <h3>180 Questions Test</h3>
+      <p>हर विषय से 45 प्रश्न — कुल 180 प्रश्न।</p>
+      <p>समय: 180 मिनट</p>
+    </div>
+    <div class="info-card">
+      <h3>Marking Scheme</h3>
+      <p>सही उत्तर: +4 अंक</p>
+      <p>गलत उत्तर: −1 अंक</p>
+      <p>बिना उत्तर: 0 अंक</p>
+    </div>
+  </section>
+
+  <section id="testScreen" class="panel" hidden>
+    <div class="test-top">
+      <span id="questionNumber">Question 1</span>
+      <span id="timer">60:00</span>
+    </div>
+
+    <p id="testSubject"></p>
+    <h2 id="testQuestion"></h2>
+    <div id="testOptions"></div>
+
+    <div class="test-buttons">
+      <button id="previousBtn">Previous</button>
+      <button id="nextBtn">Next</button>
+      <button id="submitBtn" class="submit-btn">Submit Test</button>
+    </div>
+  </section>
+
+  <section id="resultScreen" class="panel" hidden>
+    <h2>आपका परिणाम</h2>
+    <h1 id="finalScore">0</h1>
+    <p id="correctResult"></p>
+    <p id="wrongResult"></p>
+    <p id="unansweredResult"></p>
+
+    <h3>Answer Review / उत्तर की जाँच</h3>
+    <div id="answerReview"></div>
+
+    <button class="start-btn" onclick="location.reload()">नया टेस्ट दें</button>
+  </section>
+
+</main>
+
+<footer>NEET Practice • Hindi / English</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
